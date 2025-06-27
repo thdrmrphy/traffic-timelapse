@@ -12,10 +12,7 @@ A Python script to download NSW traffic camera images at regular intervals for c
 
 ## Available Cameras
 
-- **anzac-bridge** - Anzac Bridge Looking East
-- **railway-square** - George St Railway Square  
-- **william-street** - William Street East Sydney
-- **anzac-parade** - Anzac Parade Kensington
+The system supports 111 NSW traffic cameras. Use the camera slug (shown in bold) with the `--camera` parameter. You can also use `--list-cameras` to see all available options with image counts.
 
 ## Installation
 
@@ -33,12 +30,12 @@ python download.py
 
 ### Choose a specific camera:
 ```bash
-python download.py --camera railway-square
+python download.py --camera georgest
 ```
 
 ### Set custom interval (in seconds):
 ```bash
-python download.py --camera william-street --interval 30
+python download.py --camera williamst --interval 30
 ```
 
 ### List available cameras:
@@ -47,7 +44,7 @@ python download.py --list-cameras
 ```
 
 ### Command line options:
-- `--camera, -c`: Choose camera (anzac-bridge, railway-square, william-street, anzac-parade)
+- `--camera, -c`: Choose camera (use --list-cameras to see all available options)
 - `--interval, -i`: Download interval in seconds (default: 20)
 - `--list-cameras, -l`: List available cameras and exit
 - `--help, -h`: Show help message
@@ -55,8 +52,8 @@ python download.py --list-cameras
 ## Output
 
 Images are saved in the `images/` directory with filenames like:
-- `anzac_bridge_looking_east_20250627_100315.jpeg`
-- `george_st_railway_square_20250627_100325.jpeg`
+- `anzac_bridge_20250627_100315.jpeg`
+- `george_street_20250627_100325.jpeg`
 
 The timestamp format is: `YYYYMMDD_HHMMSS`
 
@@ -70,22 +67,22 @@ Once you have collected enough images, you can use the included `timelapse.py` s
 
 ### Basic usage:
 ```bash
-python timelapse.py --camera anzac-bridge
+python timelapse.py --camera anzacbr
 ```
 
 ### Advanced options:
 ```bash
 # Custom framerate and quality
-python timelapse.py --camera railway-square --framerate 60 --quality highest
+python timelapse.py --camera georgest --framerate 60 --quality highest
 
 # Create timelapse for specific date range
-python timelapse.py --camera william-street --start-date 2025-06-27 --end-date 2025-06-28
+python timelapse.py --camera williamst --start-date 2025-06-27 --end-date 2025-06-28
 
 # List available cameras and image counts
 python timelapse.py --list-cameras
 
 # List images for a specific camera
-python timelapse.py --camera anzac-bridge --list-images
+python timelapse.py --camera anzacbr --list-images
 ```
 
 ### Timelapse options:
@@ -111,3 +108,119 @@ You can also create timelapses manually with FFmpeg:
 ```bash
 ffmpeg -framerate 30 -pattern_type glob -i 'images/camera_name_*.jpeg' -c:v libx264 -pix_fmt yuv420p timelapse.mp4
 ```
+
+## Complete Camera List
+
+All 111 available NSW traffic cameras (use the slug in bold with `--camera`):
+
+- **5ways** - Five Ways Junction
+- **alfords-bangorbp** - Alfords Point Bridge
+- **alisonrd-randwick** - Alison Road, Randwick
+- **anzacbr** - Anzac Bridge
+- **anzacpde** - Anzac Parade
+- **audleyrd-audley** - Audley Road, Audley
+- **beecroftrd-epping** - Beecroft Road, Epping
+- **burntbrdg-seaforth** - Burnt Bridge, Seaforth
+- **churchst-parra** - Church Street, Parramatta
+- **citywestlink** - City West Link
+- **cumberlandhwy-carlingford** - Cumberland Highway, Carlingford
+- **cumberlandhwy-merrylands** - Cumberland Highway, Merrylands
+- **easterndist** - Eastern Distributor
+- **elizabethdr-livepool** - Elizabeth Drive, Liverpool
+- **eppingrd-lanecove** - Epping Road, Lane Cove
+- **eppingrd-macquariepark** - Epping Road, Macquarie Park
+- **f3-johnrenshawdr** - M1 Pacific Motorway, John Renshaw Drive
+- **f3-kariong** - M1 Pacific Motorway, Kariong
+- **f3-mooney** - M1 Pacific Motorway, Mooney Mooney
+- **f3-mountwhite** - M1 Pacific Motorway, Mount White
+- **f3-ourimbah** - M1 Pacific Motorway, Ourimbah
+- **f3-sparkesrd** - M1 Pacific Motorway, Sparkes Road
+- **f3-wahroonga** - M1 Pacific Motorway, Wahroonga
+- **f3-windybanks** - M1 Pacific Motorway, Windy Banks
+- **f6-mtousley** - F6 Grand Pacific Drive, Mount Ousley
+- **f6-waterfall** - F6 Grand Pacific Drive, Waterfall
+- **falconst-crowsnest** - Falcon Street, Crows Nest
+- **fiveislands-portkembla** - Five Islands Road, Port Kembla
+- **foreshore-banksmeadow** - Foreshore Road, Banksmeadow
+- **georgest** - George Street
+- **ghd-airport** - General Holmes Drive, Airport
+- **gladesvillebr** - Gladesville Bridge
+- **gorehillfwy-artarmon** - Gore Hill Freeway, Artarmon
+- **grandpde-bls** - Grand Parade, Brighton-Le-Sands
+- **greatwesternhwy-hazelbrook** - Great Western Highway, Hazelbrook
+- **harbourbridge** - Sydney Harbour Bridge
+- **homebushbay-homebush** - Homebush Bay Drive, Homebush
+- **humehwy-ashfield** - Hume Highway, Ashfield
+- **humehwy-bankstown** - Hume Highway, Bankstown
+- **humehwy-campbelltown** - Hume Highway, Campbelltown
+- **humehwy-liverpool** - Hume Highway, Liverpool
+- **humehwy-standrews** - Hume Highway, St Andrews
+- **humehwy-strathfield** - Hume Highway, Strathfield
+- **humehwy-villawood** - Hume Highway, Villawood
+- **hunterexp-allandale** - Hunter Expressway, Allandale
+- **hunterexp-branxton** - Hunter Expressway, Branxton
+- **hunterexp-buchanan** - Hunter Expressway, Buchanan
+- **hunterexpressway-m1** - Hunter Expressway, M1 Junction
+- **jrd-rosehill** - James Ruse Drive, Rosehill
+- **kinggeorge-hurstville** - King Georges Road, Hurstville
+- **knggrd-beverlyhills** - King Georges Road, Beverly Hills
+- **kosciuszkord-wilsonsvalley** - Kosciuszko Road, Wilsons Valley
+- **m2-pennanthills** - M2 Hills Motorway, Pennant Hills
+- **m2-ryde** - M2 Hills Motorway, Ryde
+- **m4-auburn** - M4 Western Motorway, Auburn
+- **m4-mayshill** - M4 Western Motorway, Mays Hill
+- **m4-minchinbury** - M4 Western Motorway, Minchinbury
+- **m4-olympic** - M4 Western Motorway, Olympic Park
+- **m4-stmarys** - M4 Western Motorway, St Marys
+- **m5-arncliffe** - M5 South Western Motorway, Arncliffe
+- **m5-kingsgrove** - M5 South Western Motorway, Kingsgrove
+- **m5-liverpool** - M5 South Western Motorway, Liverpool
+- **m5-m7** - M5 South Western Motorway, M7 Junction
+- **m5-milperra** - M5 South Western Motorway, Milperra
+- **m5-padstow** - M5 South Western Motorway, Padstow
+- **m5east** - M5 East Freeway
+- **m7-glenwood** - M7 Westlink, Glenwood
+- **m7-horsleydr** - M7 Westlink, Horsley Drive
+- **manlyrd** - Manly Road
+- **memorialdr-towradge** - Memorial Drive, Towradge
+- **militaryrd-neutralbay** - Military Road, Neutral Bay
+- **narelland-campbelltown** - Narellan Road, Campbelltown
+- **newcastlelinkrd-newcastle** - Newcastle Link Road, Newcastle
+- **newenglandhwy-hexham** - New England Highway, Hexham
+- **newsthhead-edgecliff** - New South Head Road, Edgecliff
+- **oldsthhead-bondi** - Old South Head Road, Bondi
+- **oldwindsorrd** - Old Windsor Road
+- **oldwindsorrd-winstonhills** - Old Windsor Road, Winston Hills
+- **pacific-chats** - Pacific Highway, Chatswood
+- **pacific-pymble** - Pacific Highway, Pymble
+- **pacifichwy-macksville** - Pacific Highway, Macksville
+- **pacifichwy-tomago** - Pacific Highway, Tomago
+- **parra-ashfield** - Parramatta Road, Ashfield
+- **parrard-leichhardt** - Parramatta Road, Leichhardt
+- **parrard-parra** - Parramatta Road, Parramatta
+- **parrard-silverwater** - Parramatta Road, Silverwater
+- **parrard-strathfield** - Parramatta Road, Strathfield
+- **pennanthills-beecroft** - Pennant Hills Road, Beecroft
+- **pennanthillsrd-thornleigh** - Pennant Hills Road, Thornleigh
+- **pittwaterrd-narrabeen** - Pittwater Road, Narrabeen
+- **princes-blakehurst** - Princes Highway, Blakehurst
+- **princes-kogarah** - Princes Highway, Kogarah
+- **princes-stpeters** - Princes Highway, St Peters
+- **princeshwy-albionparkrail** - Princes Highway, Albion Park Rail
+- **princeshwy-batemans** - Princes Highway, Batemans Bay
+- **princeshwy-bulli** - Princes Highway, Bulli
+- **princeshwy-sutherland** - Princes Highway, Sutherland
+- **princeshwy-wollongong** - Princes Highway, Wollongong
+- **rydebridge** - Ryde Bridge
+- **scd-eastlakes** - Southern Cross Drive, Eastlakes
+- **sed-bondijunction** - South Eastern Distributor, Bondi Junction
+- **sevenhillsrd-sevenhills** - Seven Hills Road, Seven Hills
+- **shellharbour-warilla** - Shellharbour Road, Warilla
+- **silverwaterrd-silverwater** - Silverwater Road, Silverwater
+- **stewartst-eastwood** - Stewart Street, Eastwood
+- **victoriard-gladesville** - Victoria Road, Gladesville
+- **warringahfwy** - Warringah Freeway
+- **warringahrd-forestville** - Warringah Road, Forestville
+- **warringahrd-frenchsforest** - Warringah Road, Frenchs Forest
+- **williamst** - William Street
+- **yorkst-sydney** - York Street, Sydney

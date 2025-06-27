@@ -1,0 +1,446 @@
+{
+  "5ways": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/5_ways_miranda.jpeg",
+    "name": "Five Ways Junction"
+  },
+  "alisonrd-randwick": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/alison_road_randwick.jpeg",
+    "name": "Alison Road, Randwick"
+  },
+  "anzacbr": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/anzac_bridge_eastbound.jpeg",
+    "name": "Anzac Bridge"
+  },
+  "anzacpde": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/anzac_parade_moore_park.jpeg",
+    "name": "Anzac Parade"
+  },
+  "churchst-parra": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/victoria_road_parramatta.jpeg",
+    "name": "Church Street, Parramatta"
+  },
+  "citywestlink": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/city_west_link_lilyfield.jpeg",
+    "name": "City West Link"
+  },
+  "cumberlandhwy-carlingford": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/cumberland_highway_carlingford.jpeg",
+    "name": "Cumberland Highway, Carlingford"
+  },
+  "cumberlandhwy-merrylands": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/cumberland_highway_merrylands.jpeg",
+    "name": "Cumberland Highway, Merrylands"
+  },
+  "easterndist": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/eastern_distributor_zetland.jpeg",
+    "name": "Eastern Distributor"
+  },
+  "f3-kariong": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_kariong.jpeg",
+    "name": "M1 Pacific Motorway, Kariong"
+  },
+  "f3-mooney": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_hawkesbury_river.jpeg",
+    "name": "M1 Pacific Motorway, Mooney Mooney"
+  },
+  "f3-mountwhite": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_mount_white.jpeg",
+    "name": "M1 Pacific Motorway, Mount White"
+  },
+  "f3-ourimbah": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_ourimbah.jpeg",
+    "name": "M1 Pacific Motorway, Ourimbah"
+  },
+  "f3-wahroonga": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_wahroonga.jpeg",
+    "name": "M1 Pacific Motorway, Wahroonga"
+  },
+  "f3-windybanks": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_windy_banks.jpeg",
+    "name": "M1 Pacific Motorway, Windy Banks"
+  },
+  "falconst-crowsnest": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/falcon_street_crows_nest.jpeg",
+    "name": "Falcon Street, Crows Nest"
+  },
+  "ghd-airport": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/general_holmes_drive_botany.jpeg",
+    "name": "General Holmes Drive, Airport"
+  },
+  "williamst": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/william_street_east_sydney.jpeg",
+    "name": "William Street"
+  },
+  "gladesvillebr": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/gladesville_bridge_drummoyne.jpeg",
+    "name": "Gladesville Bridge"
+  },
+  "humehwy-ashfield": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_highway_ashfield.jpeg",
+    "name": "Hume Highway, Ashfield"
+  },
+  "humehwy-bankstown": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_highway_bankstown.jpeg",
+    "name": "Hume Highway, Bankstown"
+  },
+  "humehwy-campbelltown": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_motorway_campbelltown.jpeg",
+    "name": "Hume Highway, Campbelltown"
+  },
+  "humehwy-liverpool": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_highway_cumberland_highway_liverpool.jpeg",
+    "name": "Hume Highway, Liverpool"
+  },
+  "humehwy-standrews": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_motorway_st_andrews.jpeg",
+    "name": "Hume Highway, St Andrews"
+  },
+  "humehwy-strathfield": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_highway_strathfield.jpeg",
+    "name": "Hume Highway, Strathfield"
+  },
+  "humehwy-villawood": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_highway_villawood.jpeg",
+    "name": "Hume Highway, Villawood"
+  },
+  "jrd-rosehill": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/james_ruse_drive_rosehill.jpeg",
+    "name": "James Ruse Drive, Rosehill"
+  },
+  "knggrd-beverlyhills": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/king_georges_road_beverly_hills.jpeg",
+    "name": "King Georges Road, Beverly Hills"
+  },
+  "m2-pennanthills": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m2_pennant_hills.jpeg",
+    "name": "M2 Hills Motorway, Pennant Hills"
+  },
+  "m2-ryde": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m2_ryde.jpeg",
+    "name": "M2 Hills Motorway, Ryde"
+  },
+  "m4-minchinbury": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m4_western_motorway_minchinbury.jpeg",
+    "name": "M4 Western Motorway, Minchinbury"
+  },
+  "m4-olympic": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m4_western_motorway_olympic_park.jpeg",
+    "name": "M4 Western Motorway, Olympic Park"
+  },
+  "m4-stmarys": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m4_western_motorway_st_marys.jpeg",
+    "name": "M4 Western Motorway, St Marys"
+  },
+  "m5-m7": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m5_m7_camden_valley.jpeg",
+    "name": "M5 South Western Motorway, M7 Junction"
+  },
+  "m5-liverpool": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m5_liverpool.jpeg",
+    "name": "M5 South Western Motorway, Liverpool"
+  },
+  "m5-milperra": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m5_milperra.jpeg",
+    "name": "M5 South Western Motorway, Milperra"
+  },
+  "m5east": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m5_east_beverly_hills.jpeg",
+    "name": "M5 East Freeway"
+  },
+  "m7-glenwood": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m7_glenwood.jpeg",
+    "name": "M7 Westlink, Glenwood"
+  },
+  "m7-horsleydr": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m7_at_the_horsley_drive_horsley_park.jpeg",
+    "name": "M7 Westlink, Horsley Drive"
+  },
+  "manlyrd": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/manly_road_seaforth.jpeg",
+    "name": "Manly Road"
+  },
+  "militaryrd-neutralbay": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/military_road_neutral_bay.jpeg",
+    "name": "Military Road, Neutral Bay"
+  },
+  "oldwindsorrd": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/old_windsor_road_beaumont_hills.jpeg",
+    "name": "Old Windsor Road"
+  },
+  "oldwindsorrd-winstonhills": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/old_windsor_road_winston_hills.jpeg",
+    "name": "Old Windsor Road, Winston Hills"
+  },
+  "pacific-chats": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/pacific_highway_chatswood.jpeg",
+    "name": "Pacific Highway, Chatswood"
+  },
+  "pacific-pymble": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/ryde_road_pymble.jpeg",
+    "name": "Pacific Highway, Pymble"
+  },
+  "parrard-leichhardt": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/parramatta_road_leichhardt.jpeg",
+    "name": "Parramatta Road, Leichhardt"
+  },
+  "parrard-parra": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/parramatta_road_parramatta.jpeg",
+    "name": "Parramatta Road, Parramatta"
+  },
+  "parrard-silverwater": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/parramatta_road_silverwater.jpeg",
+    "name": "Parramatta Road, Silverwater"
+  },
+  "parrard-strathfield": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/parramatta_road_strathfield.jpeg",
+    "name": "Parramatta Road, Strathfield"
+  },
+  "pittwaterrd-narrabeen": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/pittwater_road_narrabeen.jpeg",
+    "name": "Pittwater Road, Narrabeen"
+  },
+  "princes-blakehurst": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_blakehurst.jpeg",
+    "name": "Princes Highway, Blakehurst"
+  },
+  "princes-kogarah": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_kogarah.jpeg",
+    "name": "Princes Highway, Kogarah"
+  },
+  "princes-stpeters": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_st_peters_n.jpeg",
+    "name": "Princes Highway, St Peters"
+  },
+  "rydebridge": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/ryde_bridge_ryde.jpeg",
+    "name": "Ryde Bridge"
+  },
+  "sevenhillsrd-sevenhills": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/seven_hills_road_seven_hills.jpeg",
+    "name": "Seven Hills Road, Seven Hills"
+  },
+  "scd-eastlakes": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/southern_cross_drive_eastlakes.jpeg",
+    "name": "Southern Cross Drive, Eastlakes"
+  },
+  "stewartst-eastwood": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/stewart_street_eastwood.jpeg",
+    "name": "Stewart Street, Eastwood"
+  },
+  "sed-bondijunction": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/syd_einfeld_drive_bondi_junction.jpeg",
+    "name": "South Eastern Distributor, Bondi Junction"
+  },
+  "harbourbridge": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/sydney_harbour_bridge.jpeg",
+    "name": "Sydney Harbour Bridge"
+  },
+  "grandpde-bls": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/the_grand_parade_brighton-le-sands.jpeg",
+    "name": "Grand Parade, Brighton-Le-Sands"
+  },
+  "victoriard-gladesville": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/victoria_road_gladesville.jpeg",
+    "name": "Victoria Road, Gladesville"
+  },
+  "warringahfwy": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/warringah_freeway_north_sydney.jpeg",
+    "name": "Warringah Freeway"
+  },
+  "warringahrd-forestville": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/warringah_road_forestville.jpeg",
+    "name": "Warringah Road, Forestville"
+  },
+  "warringahrd-frenchsforest": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/warringah_road_frenchs_forest.jpeg",
+    "name": "Warringah Road, Frenchs Forest"
+  },
+  "georgest": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/george_st_railway_square.jpeg",
+    "name": "George Street"
+  },
+  "kosciuszkord-wilsonsvalley": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/kosciuszko_road_wilsons_valley.jpeg",
+    "name": "Kosciuszko Road, Wilsons Valley"
+  },
+  "eppingrd-macquariepark": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/epping_road_macquarie_park.jpeg",
+    "name": "Epping Road, Macquarie Park"
+  },
+  "pennanthillsrd-thornleigh": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/pennant_hills_road_thornleigh.jpeg",
+    "name": "Pennant Hills Road, Thornleigh"
+  },
+  "m4-auburn": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m4_western_motorway_auburn.jpeg",
+    "name": "M4 Western Motorway, Auburn"
+  },
+  "eppingrd-lanecove": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/epping_road_lane_cove.jpeg",
+    "name": "Epping Road, Lane Cove"
+  },
+  "greatwesternhwy-hazelbrook": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/great_western_highway_hazelbrook.jpeg",
+    "name": "Great Western Highway, Hazelbrook"
+  },
+  "audleyrd-audley": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/audley_road_audley_weir.jpeg",
+    "name": "Audley Road, Audley"
+  },
+  "beecroftrd-epping": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/carlingford_road_epping.jpeg",
+    "name": "Beecroft Road, Epping"
+  },
+  "f3-johnrenshawdr": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_john_renshaw_drive.jpeg",
+    "name": "M1 Pacific Motorway, John Renshaw Drive"
+  },
+  "f3-sparkesrd": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_sparks_road.jpeg",
+    "name": "M1 Pacific Motorway, Sparkes Road"
+  },
+  "f6-waterfall": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_heathcote.jpeg",
+    "name": "F6 Grand Pacific Drive, Waterfall"
+  },
+  "f6-mtousley": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_princes_motorway_mt_ousley.jpeg",
+    "name": "F6 Grand Pacific Drive, Mount Ousley"
+  },
+  "gorehillfwy-artarmon": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/gore_hill_freeway_artarmon.jpeg",
+    "name": "Gore Hill Freeway, Artarmon"
+  },
+  "m4-mayshill": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m4_western_motorway_mays_hill.jpeg",
+    "name": "M4 Western Motorway, Mays Hill"
+  },
+  "m5-padstow": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m5_padstow.jpeg",
+    "name": "M5 South Western Motorway, Padstow"
+  },
+  "newenglandhwy-hexham": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/new_england_highway_hexham.jpeg",
+    "name": "New England Highway, Hexham"
+  },
+  "newcastlelinkrd-newcastle": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/newcastle_rd_and_crest_rd_wallsend.jpeg",
+    "name": "Newcastle Link Road, Newcastle"
+  },
+  "princeshwy-albionparkrail": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_and_airport_rd_albion_park_rail.jpeg",
+    "name": "Princes Highway, Albion Park Rail"
+  },
+  "princeshwy-sutherland": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_sutherland.jpeg",
+    "name": "Princes Highway, Sutherland"
+  },
+  "silverwaterrd-silverwater": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/silverwater_road_silverwater.jpeg",
+    "name": "Silverwater Road, Silverwater"
+  },
+  "princeshwy-wollongong": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_wollongong.jpeg",
+    "name": "Princes Highway, Wollongong"
+  },
+  "hunterexpressway-m1": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m1_pacific_motorway_hunter_expressway.jpeg",
+    "name": "Hunter Expressway, M1 Junction"
+  },
+  "m5-arncliffe": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/marsh_street_arncliffe.jpeg",
+    "name": "M5 South Western Motorway, Arncliffe"
+  },
+  "narelland-campbelltown": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/narellan_road_campbelltown.jpeg",
+    "name": "Narellan Road, Campbelltown"
+  },
+  "parra-ashfield": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/parramatta_road_ashfield.jpeg",
+    "name": "Parramatta Road, Ashfield"
+  },
+  "princeshwy-batemans": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_batemans_bay.jpeg",
+    "name": "Princes Highway, Batemans Bay"
+  },
+  "princeshwy-bulli": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/princes_highway_bulli.jpeg",
+    "name": "Princes Highway, Bulli"
+  },
+  "alfords-bangorbp": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/new_illawarra_road_bangor_bypass.jpeg",
+    "name": "Alfords Point Bridge"
+  },
+  "elizabethdr-livepool": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hume_highway_elizabeth_drive_liverpool.jpeg",
+    "name": "Elizabeth Drive, Liverpool"
+  },
+  "fiveislands-portkembla": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/five_islands_road_port_kembla.jpeg",
+    "name": "Five Islands Road, Port Kembla"
+  },
+  "homebushbay-homebush": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/homebush_bay_drive_homebush.jpeg",
+    "name": "Homebush Bay Drive, Homebush"
+  },
+  "memorialdr-towradge": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/memorial_drive_towradgi.jpeg",
+    "name": "Memorial Drive, Towradge"
+  },
+  "pacifichwy-macksville": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/giinagay_way_macksville.jpeg",
+    "name": "Pacific Highway, Macksville"
+  },
+  "pennanthills-beecroft": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/pennant_hills_road_beecroft.jpeg",
+    "name": "Pennant Hills Road, Beecroft"
+  },
+  "pacifichwy-tomago": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/pacific_highway_tomago.jpeg",
+    "name": "Pacific Highway, Tomago"
+  },
+  "shellharbour-warilla": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/shellharbour_road_warilla.jpeg",
+    "name": "Shellharbour Road, Warilla"
+  },
+  "yorkst-sydney": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/york_st_and_margaret_st_sydney.jpeg",
+    "name": "York Street, Sydney"
+  },
+  "burntbrdg-seaforth": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/burnt_bridge_creek_balgowlah.jpeg",
+    "name": "Burnt Bridge, Seaforth"
+  },
+  "kinggeorge-hurstville": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/king_georges_road_hurstville.jpeg",
+    "name": "King Georges Road, Hurstville"
+  },
+  "m5-kingsgrove": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/m5_kingsgrove.jpeg",
+    "name": "M5 South Western Motorway, Kingsgrove"
+  },
+  "newsthhead-edgecliff": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/new_south_head_road_edgecliff.jpeg",
+    "name": "New South Head Road, Edgecliff"
+  },
+  "oldsthhead-bondi": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/old_south_head_road_bondi_junction.jpeg",
+    "name": "Old South Head Road, Bondi"
+  },
+  "foreshore-banksmeadow": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/foreshore_road_banksmeadow.jpeg",
+    "name": "Foreshore Road, Banksmeadow"
+  },
+  "hunterexp-buchanan": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hunter_expressway_buchanan.jpeg",
+    "name": "Hunter Expressway, Buchanan"
+  },
+  "hunterexp-allandale": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hunter_expressway_and_lovedale_rd.jpeg",
+    "name": "Hunter Expressway, Allandale"
+  },
+  "hunterexp-branxton": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/hunter_expressway_and_wine_country_dr.jpeg",
+    "name": "Hunter Expressway, Branxton"
+  }
+}

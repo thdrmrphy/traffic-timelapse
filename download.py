@@ -2,27 +2,24 @@ import requests
 import time
 import os
 import argparse
+import json
 from datetime import datetime
 
-# Available traffic cameras
-CAMERAS = {
-    'anzac-bridge': {
-        'url': 'https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/west_tower_anzac_br_looking_east.jpeg',
-        'name': 'Anzac Bridge Looking East'
-    },
-    'railway-square': {
-        'url': 'https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/george_st_railway_square.jpeg',
-        'name': 'George St Railway Square'
-    },
-    'william-street': {
-        'url': 'https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/william_street_east_sydney.jpeg',
-        'name': 'William Street East Sydney'
-    },
-    'anzac-parade': {
-        'url': 'https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/anzac_parade_kensington.jpeg',
-        'name': 'Anzac Parade Kensington'
-    }
-}
+def load_cameras():
+    """Load camera configurations from cameras.json"""
+    try:
+        with open('cameras.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("Error: cameras.json file not found!")
+        print("Please ensure cameras.json is in the same directory as this script.")
+        exit(1)
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON in cameras.json: {e}")
+        exit(1)
+
+# Load available traffic cameras from JSON file
+CAMERAS = load_cameras()
 
 # Directory to save images
 IMAGES_DIR = "images"
@@ -94,8 +91,8 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Download traffic camera images for timelapse creation')
     parser.add_argument('--camera', '-c', 
                        choices=list(CAMERAS.keys()), 
-                       default='anzac-bridge',
-                       help='Camera to download from (default: anzac-bridge)')
+                       default='anzacbr',
+                       help='Camera to download from (default: anzacbr)')
     parser.add_argument('--interval', '-i', 
                        type=int, 
                        default=20,

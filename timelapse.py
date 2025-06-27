@@ -3,26 +3,28 @@ import glob
 import argparse
 import subprocess
 import sys
+import json
 from datetime import datetime
 
-CAMERAS = {
-    'anzac-bridge': {
-        'name': 'Anzac Bridge Looking East',
-        'slug': 'anzac_bridge_looking_east'
-    },
-    'railway-square': {
-        'name': 'George St Railway Square',
-        'slug': 'george_st_railway_square'
-    },
-    'william-street': {
-        'name': 'William Street East Sydney',
-        'slug': 'william_street_east_sydney'
-    },
-    'anzac-parade': {
-        'name': 'Anzac Parade Kensington',
-        'slug': 'anzac_parade_kensington'
-    }
-}
+def load_cameras():
+    """Load camera configurations from cameras.json"""
+    try:
+        with open('cameras.json', 'r') as f:
+            return json.load(f)
+    except FileNotFoundError:
+        print("Error: cameras.json file not found!")
+        print("Please ensure cameras.json is in the same directory as this script.")
+        exit(1)
+    except json.JSONDecodeError as e:
+        print(f"Error: Invalid JSON in cameras.json: {e}")
+        exit(1)
+
+def get_camera_slug(camera_name):
+    """Convert camera name to a filename-safe slug"""
+    return camera_name.lower().replace(' ', '_').replace(',', '').replace('/', '_').replace('-', '_')
+
+# Load available traffic cameras from JSON file
+CAMERAS_DATA = load_cameras()
 
 IMAGES_DIR = "images"
 OUTPUT_DIR = "timelapses"
@@ -78,12 +80,12 @@ def find_camera_images(camera_slug, start_date=None, end_date=None):
 
 def create_timelapse(camera_key, framerate=30, output_quality='high', start_date=None, end_date=None):
     """Create a timelapse video from camera images"""
-    if camera_key not in CAMERAS:
+    if camera_key not in CAMERAS_DATA:
         print(f"Error: Unknown camera '{camera_key}'")
         return False
     
-    camera = CAMERAS[camera_key]
-    camera_slug = camera['slug']
+    camera = CAMERAS_DATA[camera_key]
+    camera_slug = get_camera_slug(camera['name'])
     
     # Find images for this camera
     image_files = find_camera_images(camera_slug, start_date, end_date)
@@ -169,7 +171,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description='Create timelapse videos from downloaded traffic camera images')
     
     parser.add_argument('--camera', '-c',
-                       choices=list(CAMERAS.keys()),
+                       choices=list(CAMERAS_DATA.keys()),
                        help='Camera to create timelapse from')
     
     parser.add_argument('--framerate', '-f',
@@ -210,20 +212,21 @@ def list_available_cameras():
     """List all available cameras"""
     print("Available cameras:")
     print("-" * 50)
-    for key, camera in CAMERAS.items():
+    for key, camera in CAMERAS_DATA.items():
         # Count images for each camera
-        image_count = len(find_camera_images(camera['slug']))
-        print(f"  {key:15} - {camera['name']} ({image_count} images)")
+        camera_slug = get_camera_slug(camera['name'])
+        image_count = len(find_camera_images(camera_slug))
+        print(f"  {key:25} - {camera['name']} ({image_count} images)")
     print()
 
 def list_camera_images(camera_key):
     """List images for a specific camera"""
-    if camera_key not in CAMERAS:
+    if camera_key not in CAMERAS_DATA:
         print(f"Error: Unknown camera '{camera_key}'")
         return
     
-    camera = CAMERAS[camera_key]
-    camera_slug = camera['slug']
+    camera = CAMERAS_DATA[camera_key]
+    camera_slug = get_camera_slug(camera['name'])
     image_files = find_camera_images(camera_slug)
     
     if not image_files:
