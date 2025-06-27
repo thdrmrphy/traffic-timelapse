@@ -14,7 +14,7 @@ A Python script to download NSW traffic camera images at regular intervals for c
 
 ## Available Cameras
 
-The system supports 112 NSW traffic cameras. Use the camera slug (shown in bold) with the `--camera` parameter. You can also use `--list-cameras` to see all available options with image counts.
+The system supports 113 NSW traffic cameras. Use the camera slug (shown in bold) with the `--camera` parameter. You can also use `--list-cameras` to see all available options with image counts.
 
 ## Installation
 
@@ -61,6 +61,9 @@ python download.py --camera anzacbr georgest harbourbridge
 
 # Download from both directions of Anzac Bridge
 python download.py --camera anzacbr anzacbr-westbound
+
+# Download from all three Anzac Bridge cameras for comprehensive coverage
+python download.py --camera anzacbr anzacbr-westbound anzacbr-westtower
 
 # Download from multiple highway cameras
 python download.py --camera m4-auburn m5-liverpool f3-kariong --interval 15
@@ -153,13 +156,14 @@ ffmpeg -framerate 30 -pattern_type glob -i 'images/camera_name_*.jpeg' -c:v libx
 
 ## Complete Camera List
 
-All 112 available NSW traffic cameras (use the slug in bold with `--camera`):
+All 113 available NSW traffic cameras (use the slug in bold with `--camera`):
 
 - **5ways** - Five Ways Junction
 - **alfords-bangorbp** - Alfords Point Bridge
 - **alisonrd-randwick** - Alison Road, Randwick
 - **anzacbr** - Anzac Bridge
 - **anzacbr-westbound** - Anzac Bridge, Westbound
+- **anzacbr-westtower** - Anzac Bridge, West Tower Looking East
 - **anzacpde** - Anzac Parade
 - **audleyrd-audley** - Audley Road, Audley
 - **beecroftrd-epping** - Beecroft Road, Epping
