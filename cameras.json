@@ -11,6 +11,10 @@
     "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/anzac_bridge_eastbound.jpeg",
     "name": "Anzac Bridge"
   },
+  "anzacbr-westbound": {
+    "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/anzac_bridge_westbound.jpeg",
+    "name": "Anzac Bridge, Westbound"
+  },
   "anzacpde": {
     "url": "https://webcams.transport.nsw.gov.au/livetraffic-webcams/cameras/anzac_parade_moore_park.jpeg",
     "name": "Anzac Parade"
