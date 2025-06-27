@@ -3,6 +3,12 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+# Downloaded images
+images/
+
+# Generated timelapses
+timelapses/
+
 # C extensions
 *.so
 
