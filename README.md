@@ -5,10 +5,12 @@ A Python script to download NSW traffic camera images at regular intervals for c
 ## Features
 
 - Download images from multiple NSW traffic cameras
+- **Support for simultaneous downloads from multiple cameras**
 - Configurable download intervals
 - Automatic image validation (ensures actual images, not error pages)
 - Timestamped filenames for easy chronological sorting
 - Browser-like headers to avoid being blocked
+- Thread-safe concurrent downloads with individual camera progress tracking
 
 ## Available Cameras
 
@@ -33,6 +35,11 @@ python download.py
 python download.py --camera georgest
 ```
 
+### Download from multiple cameras simultaneously:
+```bash
+python download.py --camera anzacbr georgest harbourbridge --interval 30
+```
+
 ### Set custom interval (in seconds):
 ```bash
 python download.py --camera williamst --interval 30
@@ -43,8 +50,37 @@ python download.py --camera williamst --interval 30
 python download.py --list-cameras
 ```
 
+## Multi-Camera Downloads
+
+The system supports downloading from multiple cameras simultaneously using threading. Each camera runs in its own thread with individual progress tracking:
+
+### Download from multiple specific cameras:
+```bash
+# Download from 3 cameras at once
+python download.py --camera anzacbr georgest harbourbridge
+
+# Download from multiple highway cameras
+python download.py --camera m4-auburn m5-liverpool f3-kariong --interval 15
+```
+
+### Benefits of multi-camera mode:
+- **Concurrent downloads**: All cameras download simultaneously, not sequentially
+- **Individual tracking**: Each camera shows its own download count and status
+- **Shared interval**: All cameras use the same download interval
+- **Separate image files**: Each camera saves images with its own naming convention
+
+### Output format for multi-camera:
+When downloading from multiple cameras, the console output includes camera identifiers:
+```
+[anzacbr] Downloaded: anzacbr_20250627_141547.jpeg (Size: 108139 bytes)
+[georgest] Downloaded: georgest_20250627_141547.jpeg (Size: 112495 bytes)
+[anzacbr] Total images downloaded: 1
+[georgest] Total images downloaded: 1
+Status: Total downloads across all cameras: 2
+```
+
 ### Command line options:
-- `--camera, -c`: Choose camera (use --list-cameras to see all available options)
+- `--camera, -c`: Choose camera(s) (use --list-cameras to see all available options). Can specify multiple cameras for simultaneous downloading
 - `--interval, -i`: Download interval in seconds (default: 20)
 - `--list-cameras, -l`: List available cameras and exit
 - `--help, -h`: Show help message
@@ -52,10 +88,13 @@ python download.py --list-cameras
 ## Output
 
 Images are saved in the `images/` directory with filenames like:
-- `anzac_bridge_20250627_100315.jpeg`
-- `george_street_20250627_100325.jpeg`
+- `anzacbr_20250627_100315.jpeg` (single camera or multi-camera mode)
+- `georgest_20250627_100325.jpeg`
+- `harbourbridge_20250627_100330.jpeg`
 
 The timestamp format is: `YYYYMMDD_HHMMSS`
+
+When using multiple cameras, each camera creates its own files with its camera slug as the prefix, making it easy to sort and organize images by camera source.
 
 ## Stopping
 

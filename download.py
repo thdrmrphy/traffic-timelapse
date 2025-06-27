@@ -4,6 +4,7 @@ import os
 import argparse
 import json
 from datetime import datetime
+import threading
 
 def load_cameras():
     """Load camera configurations from cameras.json"""
@@ -30,13 +31,12 @@ def create_images_directory():
         os.makedirs(IMAGES_DIR)
         print(f"Created directory: {IMAGES_DIR}")
 
-def download_image(camera_url, camera_name):
+def download_image(camera_slug, camera_url, camera_name):
     """Download the traffic camera image and save it with a timestamp"""
     try:
         # Get current timestamp for filename
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        # Create filename based on camera name
-        camera_slug = camera_name.lower().replace(' ', '_').replace('/', '_')
+        # Create filename based on camera slug (more reliable than processing name)
         filename = f"{camera_slug}_{timestamp}.jpeg"
         filepath = os.path.join(IMAGES_DIR, filename)
         
@@ -57,42 +57,43 @@ def download_image(camera_url, camera_name):
         # Check if we actually got an image (not HTML error page)
         content_type = response.headers.get('content-type', '').lower()
         if 'text/html' in content_type:
-            print("Error: Received HTML page instead of image. Camera may be unavailable.")
-            print(f"Content preview: {response.text[:200]}...")
+            print(f"[{camera_slug}] Error: Received HTML page instead of image. Camera may be unavailable.")
+            print(f"[{camera_slug}] Content preview: {response.text[:200]}...")
             return False
         
         # Additional check: see if content starts with HTML
         if response.content.startswith(b'<html') or response.content.startswith(b'<!DOCTYPE'):
-            print("Error: Received HTML content instead of image data.")
+            print(f"[{camera_slug}] Error: Received HTML content instead of image data.")
             return False
         
         # Check if content looks like an image (JPEG files start with specific bytes)
         if not response.content.startswith(b'\xff\xd8\xff'):
-            print("Warning: Content doesn't appear to be a JPEG image.")
-            print(f"Content preview: {response.content[:50]}")
+            print(f"[{camera_slug}] Warning: Content doesn't appear to be a JPEG image.")
+            print(f"[{camera_slug}] Content preview: {response.content[:50]}")
             return False
         
         # Save the image
         with open(filepath, 'wb') as file:
             file.write(response.content)
         
-        print(f"Downloaded: {filename} (Size: {len(response.content)} bytes)")
+        print(f"[{camera_slug}] Downloaded: {filename} (Size: {len(response.content)} bytes)")
         return True
         
     except requests.exceptions.RequestException as e:
-        print(f"Error downloading image: {e}")
+        print(f"[{camera_slug}] Error downloading image: {e}")
         return False
     except Exception as e:
-        print(f"Unexpected error: {e}")
+        print(f"[{camera_slug}] Unexpected error: {e}")
         return False
 
 def parse_arguments():
     """Parse command line arguments"""
     parser = argparse.ArgumentParser(description='Download traffic camera images for timelapse creation')
     parser.add_argument('--camera', '-c', 
+                       nargs='+',  # Allow multiple values
                        choices=list(CAMERAS.keys()), 
-                       default='anzacbr',
-                       help='Camera to download from (default: anzacbr)')
+                       default=['anzacbr'],
+                       help='Camera(s) to download from. Can specify multiple cameras (default: anzacbr)')
     parser.add_argument('--interval', '-i', 
                        type=int, 
                        default=20,
@@ -111,6 +112,35 @@ def list_available_cameras():
         print(f"  {key:15} - {camera['name']}")
     print()
 
+class CameraDownloader:
+    """Class to handle downloading from a single camera in a separate thread"""
+    
+    def __init__(self, camera_slug, camera_data, interval):
+        self.camera_slug = camera_slug
+        self.camera_url = camera_data['url']
+        self.camera_name = camera_data['name']
+        self.interval = interval
+        self.download_count = 0
+        self.running = True
+        self.lock = threading.Lock()
+    
+    def run(self):
+        """Main download loop for this camera"""
+        print(f"[{self.camera_slug}] Starting download from {self.camera_name}")
+        
+        while self.running:
+            if download_image(self.camera_slug, self.camera_url, self.camera_name):
+                with self.lock:
+                    self.download_count += 1
+                    print(f"[{self.camera_slug}] Total images downloaded: {self.download_count}")
+            
+            # Wait for specified interval before next download
+            time.sleep(self.interval)
+    
+    def stop(self):
+        """Stop the download loop"""
+        self.running = False
+
 def main():
     """Main function to run the image downloading loop"""
     args = parse_arguments()
@@ -120,14 +150,12 @@ def main():
         list_available_cameras()
         return
     
-    # Get selected camera
-    camera = CAMERAS[args.camera]
-    camera_url = camera['url']
-    camera_name = camera['name']
+    # Get selected cameras
+    selected_cameras = args.camera
     
     print("Traffic Camera Image Downloader")
-    print(f"Camera: {camera_name}")
-    print(f"Downloading from: {camera_url}")
+    print(f"Cameras: {', '.join([CAMERAS[cam]['name'] for cam in selected_cameras])}")
+    print(f"Camera slugs: {', '.join(selected_cameras)}")
     print(f"Interval: {args.interval} seconds")
     print("Press Ctrl+C to stop")
     print("-" * 50)
@@ -135,22 +163,57 @@ def main():
     # Create images directory
     create_images_directory()
     
-    download_count = 0
+    # Create camera downloaders
+    downloaders = []
+    threads = []
+    
+    for camera_slug in selected_cameras:
+        camera_data = CAMERAS[camera_slug]
+        downloader = CameraDownloader(camera_slug, camera_data, args.interval)
+        downloaders.append(downloader)
+        
+        # Create and start thread for this camera
+        thread = threading.Thread(target=downloader.run, daemon=True)
+        threads.append(thread)
+        thread.start()
     
     try:
+        # Wait for all threads and show periodic status
         while True:
-            if download_image(camera_url, camera_name):
-                download_count += 1
-                print(f"Total images downloaded: {download_count}")
+            time.sleep(10)  # Show status every 10 seconds
+            total_downloads = sum(d.download_count for d in downloaders)
+            print(f"Status: Total downloads across all cameras: {total_downloads}")
             
-            # Wait for specified interval before next download
-            print(f"Waiting {args.interval} seconds...")
-            time.sleep(args.interval)
+            # Check if any threads died unexpectedly
+            alive_threads = [t for t in threads if t.is_alive()]
+            if len(alive_threads) < len(threads):
+                print("Warning: Some camera threads have stopped!")
+                break
             
     except KeyboardInterrupt:
-        print(f"\nStopped by user. Total images downloaded: {download_count}")
+        print("\nStopping all cameras...")
+        
+        # Stop all downloaders
+        for downloader in downloaders:
+            downloader.stop()
+        
+        # Wait for threads to finish (with timeout)
+        for thread in threads:
+            thread.join(timeout=2)
+        
+        # Show final statistics
+        print("\nFinal Statistics:")
+        total_downloads = 0
+        for downloader in downloaders:
+            print(f"  {downloader.camera_slug}: {downloader.download_count} images")
+            total_downloads += downloader.download_count
+        print(f"Total images downloaded: {total_downloads}")
+        
     except Exception as e:
         print(f"Unexpected error in main loop: {e}")
+        # Stop all downloaders
+        for downloader in downloaders:
+            downloader.stop()
 
 if __name__ == "__main__":
     main()
