@@ -19,10 +19,6 @@ def load_cameras():
         print(f"Error: Invalid JSON in cameras.json: {e}")
         exit(1)
 
-def get_camera_slug(camera_name):
-    """Convert camera name to a filename-safe slug"""
-    return camera_name.lower().replace(' ', '_').replace(',', '').replace('/', '_').replace('-', '_')
-
 # Load available traffic cameras from JSON file
 CAMERAS_DATA = load_cameras()
 
@@ -43,9 +39,10 @@ def create_output_directory():
         os.makedirs(OUTPUT_DIR)
         print(f"Created directory: {OUTPUT_DIR}")
 
-def find_camera_images(camera_slug, start_date=None, end_date=None):
+def find_camera_images(camera_key, start_date=None, end_date=None):
     """Find all images for a specific camera, optionally filtered by date range"""
-    pattern = os.path.join(IMAGES_DIR, f"{camera_slug}_*.jpeg")
+    # Use the camera key directly as the filename prefix (matches download.py behavior)
+    pattern = os.path.join(IMAGES_DIR, f"{camera_key}_*.jpeg")
     image_files = glob.glob(pattern)
     
     if not image_files:
@@ -58,7 +55,7 @@ def find_camera_images(camera_slug, start_date=None, end_date=None):
             # Extract timestamp from filename
             basename = os.path.basename(img_file)
             try:
-                # Format: camera_slug_YYYYMMDD_HHMMSS.jpeg
+                # Format: camera_key_YYYYMMDD_HHMMSS.jpeg
                 timestamp_part = basename.split('_')[-2] + '_' + basename.split('_')[-1].replace('.jpeg', '')
                 img_datetime = datetime.strptime(timestamp_part, '%Y%m%d_%H%M%S')
                 
@@ -85,14 +82,13 @@ def create_timelapse(camera_key, framerate=30, output_quality='high', start_date
         return False
     
     camera = CAMERAS_DATA[camera_key]
-    camera_slug = get_camera_slug(camera['name'])
     
-    # Find images for this camera
-    image_files = find_camera_images(camera_slug, start_date, end_date)
+    # Find images for this camera using the camera key directly
+    image_files = find_camera_images(camera_key, start_date, end_date)
     
     if not image_files:
         print(f"No images found for camera '{camera_key}' ({camera['name']})")
-        print(f"Looking for pattern: {camera_slug}_*.jpeg in {IMAGES_DIR}/")
+        print(f"Looking for pattern: {camera_key}_*.jpeg in {IMAGES_DIR}/")
         return False
     
     print(f"Found {len(image_files)} images for {camera['name']}")
@@ -123,7 +119,7 @@ def create_timelapse(camera_key, framerate=30, output_quality='high', start_date
     }
     
     # Build FFmpeg command
-    input_pattern = os.path.join(IMAGES_DIR, f"{camera_slug}_*.jpeg")
+    input_pattern = os.path.join(IMAGES_DIR, f"{camera_key}_*.jpeg")
     
     ffmpeg_cmd = [
         'ffmpeg',
@@ -213,9 +209,8 @@ def list_available_cameras():
     print("Available cameras:")
     print("-" * 50)
     for key, camera in CAMERAS_DATA.items():
-        # Count images for each camera
-        camera_slug = get_camera_slug(camera['name'])
-        image_count = len(find_camera_images(camera_slug))
+        # Count images for each camera using the camera key directly
+        image_count = len(find_camera_images(key))
         print(f"  {key:25} - {camera['name']} ({image_count} images)")
     print()
 
@@ -226,8 +221,7 @@ def list_camera_images(camera_key):
         return
     
     camera = CAMERAS_DATA[camera_key]
-    camera_slug = get_camera_slug(camera['name'])
-    image_files = find_camera_images(camera_slug)
+    image_files = find_camera_images(camera_key)
     
     if not image_files:
         print(f"No images found for camera '{camera_key}' ({camera['name']})")
